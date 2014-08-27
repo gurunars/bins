@@ -1,0 +1,13 @@
+Source: bins
+Section: python
+Priority: optional
+Maintainer: Anton Berezin <gurunars@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+
+
+Package: bins
+Architecture: all
+Depends: ${python:Depends},
+         ${misc:Depends}
+Description: Install local packages and their deps

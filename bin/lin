@@ -1,0 +1,63 @@
+#!/bin/bash
+
+
+PKG_KEY=" Package: "
+DEP_KEY="Depends:"
+OIFS="${IFS}"
+NIFS=$'\n'
+
+
+function get_missing_top_level_dependencies(){
+    local control_data=$(dpkg -I $1 2> /dev/null)
+    local dependencies=()
+
+    IFS="${NIFS}"
+    for line in ${control_data}; do
+        if [[ $line = \ $DEP_KEY* ]]; then
+            IFS=','
+            for item in ${line:${#DEP_KEY}+1}; do
+                IFS=' ' read -a item <<< "$item"
+                pkg_name=${item[0]}
+                dpkg -l | grep " $pkg_name " &> /dev/null
+                if [[ $? -eq 1 ]]; then
+                    dependencies+=(${item[0]})
+                fi
+            done
+        fi
+    done
+    IFS="${OIFS}"
+
+    echo "${dependencies[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '
+}
+
+
+for pkg_name in "$@"; do
+    echo "Installing missing dependencies of $pkg_name..."
+    missing=$(get_missing_top_level_dependencies $pkg_name)
+
+    deps=()
+
+    for i in $missing; do
+        skip=
+        for j in "$@"; do
+            pkg_line=$(dpkg -I $j | grep $PKG_KEY)
+            pkg_name=${pkg_line:${#PKG_KEY}};
+            [[ $i == $pkg_name ]] && { skip=1; break; }
+        done
+        [[ -n $skip ]] || deps+=("$i")
+    done
+
+    deps="${deps[@]}"
+    if [[ -z "$deps" ]]; then
+        echo "    [SKIP]"
+    else
+        apt-get install $deps
+        apt-mark auto $deps
+    fi
+done
+
+
+#install all the packages from arguments
+if [ "$#" -gt "0" ]; then
+    dpkg -i "$@"
+fi
