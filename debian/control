@@ -1,4 +1,4 @@
-Source: bins
+Source: gurubins
 Section: python
 Priority: optional
 Maintainer: Anton Berezin <gurunars@gmail.com>
@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.8.4
 
 
-Package: bins
+Package: gurubins
 Architecture: all
 Depends: ${python:Depends},
          ${misc:Depends}
