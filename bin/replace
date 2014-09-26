@@ -14,4 +14,4 @@ if [ -z "$TARGET_STR" ]; then
 fi
 
 # NOTE: we do not want to touch .git directory
-find . -type f -print0 -and -not -path "*.git/*" | xargs -0 sed -i 's/$SOURCE_STR/$TARGET_STR/g'
+find . -type f -and -not -path "*.git/*" -print0 | xargs -0 sed -i 's/$SOURCE_STR/$TARGET_STR/g'
