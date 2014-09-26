@@ -1,3 +1,9 @@
+gurubins (0.0.2) UNRELEASED; urgency=medium
+
+  * Added a replace command
+
+ -- Anton Berezin <anton.berezin@f-secure.com>  Fri, 26 Sep 2014 09:30:46 +0300
+
 gurubins (0.0.1) ANY; urgency=low
 
   * Init
