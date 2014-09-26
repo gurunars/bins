@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -i -t --volume $SSH_AUTH_SOCK:/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent $1 /bin/bash
