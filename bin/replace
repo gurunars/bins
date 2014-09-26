@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SOURCE_STR=$1
+TARGET_STR=$2
+
+if [ -z "$SOURCE_STR" ]; then
+    echo "Define SOURCE_STR..."
+    exit 1
+fi
+
+if [ -z "$TARGET_STR" ]; then
+    echo "Define TARGET_STR..."
+    exit 1
+fi
+
+# NOTE: we do not want to touch .git directory
+find . -type f -print0 -and -not -path "*.git/*" | xargs -0 sed -i 's/$SOURCE_STR/$TARGET_STR/g'
