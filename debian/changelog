@@ -1,9 +1,10 @@
-gurubins (0.0.3) UNRELEASED; urgency=medium
+gurubins (0.0.4) UNRELEASED; urgency=medium
 
   * Added a replace command
   * Fixed the command
+  * Added a dockerrun shortcut
 
- -- Anton Berezin <anton.berezin@f-secure.com>  Fri, 26 Sep 2014 09:41:16 +0300
+ -- Anton Berezin <anton.berezin@f-secure.com>  Fri, 26 Sep 2014 17:23:52 +0300
 
 gurubins (0.0.1) ANY; urgency=low
 
