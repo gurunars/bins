@@ -2,4 +2,18 @@
 
 echo "Killing all processes with name $1 within this bash session..."
 
-kill -9 `ps u | grep $1 | grep -v grep | col 2 | tr '\n' ' '`
+function col {
+    first="awk '{print "
+    last="}'"
+    cmd="${first}\$${1}${last}"
+    eval $cmd
+}
+
+pids=`ps u | grep $1 | grep -v grep | col 2 | tr '\n' ' '`
+
+if [[ -z "$pids"]]; then
+    echo "No processes found..."
+    exit 1
+fi
+
+kill -9 $pids
