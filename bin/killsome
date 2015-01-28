@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Killing all processes with name $1 within this bash session..."
+
+kill -9 `ps u | grep $1 | grep -v grep | col 2 | tr '\n' ' '`
