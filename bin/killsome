@@ -11,7 +11,7 @@ function col {
 
 pids=`ps u | grep $1 | grep -v grep | col 2 | tr '\n' ' '`
 
-if [[ -z "$pids"]]; then
+if [[ -z "$pids" ]]; then
     echo "No processes found..."
     exit 1
 fi
