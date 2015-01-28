@@ -15,3 +15,13 @@ Recursively replaces a string with a substring in all the files in a current dir
 ::
 
   replace "string" "substring"
+
+killsome
+========
+
+Kills all the processes with a specific name under the current bash session. It is not an
+alternative to `killall` even though it does somewhat the same thing.
+
+::
+
+  killsome python
