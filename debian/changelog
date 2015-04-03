@@ -1,4 +1,4 @@
-gurubins (0.0.4) experimental;
+gurubins (0.0.4) experimental; urgency=low
 
   * Added a replace command
   * Fixed the command
@@ -6,7 +6,7 @@ gurubins (0.0.4) experimental;
 
  -- Anton Berezin <gurunars@gmail.com>  Fri, 26 Sep 2014 17:23:52 +0300
 
-gurubins (0.0.1) experimental;
+gurubins (0.0.1) experimental; urgency=low
 
   * Init
 
