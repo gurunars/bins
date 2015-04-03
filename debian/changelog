@@ -1,4 +1,4 @@
-gurubins (0.0.4) ANY; urgency=medium
+gurubins (0.0.4) experimental
 
   * Added a replace command
   * Fixed the command
@@ -6,7 +6,7 @@ gurubins (0.0.4) ANY; urgency=medium
 
  -- Anton Berezin <gurunars@gmail.com>  Fri, 26 Sep 2014 17:23:52 +0300
 
-gurubins (0.0.1) ANY; urgency=low
+gurubins (0.0.1) experimental
 
   * Init
 
