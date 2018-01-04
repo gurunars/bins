@@ -51,7 +51,7 @@ for pkg_name in "$@"; do
     if [[ -z "$deps" ]]; then
         echo "    [SKIP]"
     else
-        apt-get install $deps
+        apt-get -y install $deps
         apt-mark auto $deps
     fi
 done
