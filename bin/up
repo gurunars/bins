@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ARRAY=(update upgrade dist-upgrade autoremove)
+
+for cmd in "${ARRAY[@]}"; do
+    sudo apt-get -y $cmd
+done
